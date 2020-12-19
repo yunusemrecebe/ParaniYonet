@@ -1,5 +1,6 @@
 .main-content {
   max-width: 1700px;
+  width: 90%;
   display: flex;
   margin: auto;
 }
