@@ -48,39 +48,33 @@
     </div>
 
     <div class="main-right">
-      
-
 
       <div class="para-tranfer">
         <h5>Para transferi</h5>
 
-        <form class="form-inline date-form">
+        <form>
 
           <label for="sendingAccount">Gönderen hesap</label>
-          <select class="custom-select m-2" id="sendingAccount">
+          <select class="custom-select" id="sendingAccount">
             <option value="">ziraat</option>
             <option value="lastOneMonth">cüzdan</option>
             <option value="lastThreeMonth">Son üç ay</option>
           </select>
 
           <label for="gettingAccount">Alan hesap</label>
-          <select class="custom-select m-2" id="gettingAccount">
+          <select class="custom-select" id="gettingAccount">
             <option value="">ziraat</option>
             <option value="">garanti</option>
             <option value="">Son üç ay</option>
           </select>
 
           <label for="sendingAmount">Miktar</label>
-          <input type="number" class="form-control m-2" id="sendingAmount" />
+          <input type="number" class="form-control" id="sendingAmount" />
 
-          <button type="submit" class="btn btn-primary my-1 m-3">ONAY</button>
+          <button type="submit" class="btn btn-primary my-1">ONAY</button>
 
         </form>
       </div>
-
-
-     
-
 
       <!-- KAYIT OLMA PENCERESİ -->
       <div class="modal fade" id="hesapAc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -127,43 +121,7 @@
 
   </div>
   </div>
-  <!-- Bootstrap gerekli js kodları -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
 
 
-<script>
-    $(document).ready(function(){
-
-        $("#kaydet").click(function(){//Hesap oluşturma işlemleri
-
-            var accountName = $("input[name=accountName]").val();
-            var accountBalance = $("input[name=accountBalance]").val();
-            //var accountType = $("input[name=exampleRadios]").val();
-            var accountType = document.querySelector('input[name="exampleRadios"]:checked').value;
-            console.log(accountName,accountBalance,accountType);
-
-            $.ajax({
-                url: "backend/createAccount.php",
-                type: "POST",
-                data:{
-                    'accountName':accountName,
-                    'accountBalance':accountBalance,
-                    'accountType':accountType
-                },
-                success: function(result){
-                    alert(result);
-                    if (result == "Hesap Oluşturuldu!"){
-                        $("#hesapAc").modal('hide');
-                        $("input[name=accountName]").val('');
-                        $("input[name=accountBalance]").val('');
-                        $("input[name=exampleRadios]").val('');
-                    }
-               }
-            });
-        });
-    });
-</script>

@@ -22,3 +22,11 @@
   margin: 10px;
   min-width: 300px;
 }
+
+.para-tranfer label{
+  margin-top: 10px;
+}
+
+.para-tranfer button{
+  margin-top: 10px;
+}
