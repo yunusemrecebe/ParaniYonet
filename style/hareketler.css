@@ -1,0 +1,20 @@
+.main-content{
+    max-width: 1700px;
+    width:90%;
+    display: flex;
+    margin:auto;
+}
+
+.sidebar{
+    width:25%;
+}
+
+.main-right{
+    margin:1% 0 0 2%;
+    width:75%;
+}
+
+.date-form{
+    padding:5px;
+    float:right;
+}

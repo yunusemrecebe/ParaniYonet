@@ -1,0 +1,80 @@
+.main-content {
+  max-width: 1700px;
+  width: 90%;
+  display: flex;
+  margin: auto;
+}
+
+.sidebar {
+  width: 25%;
+}
+
+.main-right {
+  font-family: Arial;
+  margin: 2% 0 0 2%;
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.money-info-container {
+  display: flex;
+  width: 48%;
+  flex-direction: column;
+}
+.money-info-card {
+  width: 98%;
+  background: #e8e8e8;
+  border-radius: 75px;
+  border-bottom-left-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-box-shadow: 11px 14px 37px -19px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 14px 37px -19px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 14px 37px -19px rgba(0, 0, 0, 0.75);
+}
+
+.money-info-card img {
+  width: 200px;
+  height: 200px;
+}
+
+.money-info-card h4 {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.money-info-card h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+ol {
+  font-size: 1.2em;
+}
+
+.ol-tag-week {
+  border-bottom-right-radius: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  width: 65%;
+  color: #fff;
+  background-color: #fb654e;
+}
+
+.ol-tag-day {
+  border-bottom-right-radius: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  width: 55%;
+  color: #fff;
+  background-color: mediumslateblue;
+}

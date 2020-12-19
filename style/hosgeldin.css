@@ -1,0 +1,59 @@
+.main-content {
+  max-width: 1700px;
+  width: 90%;
+  display: flex;
+  margin: auto;
+}
+
+.sidebar {
+  width: 25%;
+}
+
+.main-right {
+  font-family: Arial;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.welcome-img-container {
+  margin: auto;
+  margin-top:6%;
+  display: flex;
+  width: 48%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.welcome-img-container img {
+  width: 400px;
+  height: 400px;
+  
+}
+
+.welcome-img-container h2{
+  font-weight: bold;
+}
+
+.welcome-img-container h6{
+  font-size: 1.1em;
+  color:gray;
+}
+
+.pick-one {
+  margin-left:5px;
+  z-index: 3;
+  position: absolute;
+  color: gray;
+  
+}
+
+.pick-one h6 {
+  font-weight: bold;
+}
+
+.pick-one img {
+  width: 20%;
+}
