@@ -30,7 +30,7 @@ if($_SESSION['userId'] != "" && $_POST['account'] != "" && $_POST['category'] !=
         echo "Harcama eklendi!";
     }
     else{
-        echo "Bir Hata oluştu!";
+        echo "Bir hata oluştu!";
     }
 }
 else{
