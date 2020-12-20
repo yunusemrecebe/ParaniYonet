@@ -14,42 +14,41 @@
 
 <body>
   <div class="main-content">
-    <div class="sidebar">
-      <ul class="list-group">
-        <a href="hesapDetay.html">
-          <li class="list-group-item active p-3">Hesap İşlemleri</li>
-        </a>
-        <ul class="list-group">
-            <a href="hesapDetay.html">
-                <li style="margin-left: 10%" class="list-group-item active p-2">Hesap Detayları</li>
-              </a>
-              <a href="paraTransfer.html">
-                <li style="margin-left: 10%" class="list-group-item  p-2">Para Tranferi</li>
-              </a>
-              <a href="harcamaGir.html">
-                <li style="margin-left: 10%" class="list-group-item  p-2">Harcama Yapma</li>
-              </a>
-        </ul>
-        <a href="hareketler.php">
-          <li class="list-group-item p-3">Hareketler</li>
-        </a><a href="kategoriler.html">
-          <li class="list-group-item p-3">Kategoriler</li>
-        </a>
-        <a href="genelBakis.php">
-          <li class="list-group-item p-3">Genel Bakış</li>
-        </a>
 
-        <a href="kullaniciIslemleri.php">
-          <li class="list-group-item p-3">Kullanıcı İşlemleri</li>
-        </a>
-      </ul>
-    </div>
+      <div class="sidebar">
+          <ul class="list-group">
+              <a href="hesapDetay.php">
+                  <li id="1" class="list-group-item active p-3">Hesap İşlemleri</li>
+              </a>
+              <ul class="list-group">
+                  <a href="hesapDetay.php">
+                      <li style="margin-left: 10%" id="1" class="list-group-item active p-2">Hesap Detayları</li>
+                  </a>
+                  <a href="paraTransfer.php">
+                      <li style="margin-left: 10%" class="list-group-item  p-2">Para Tranferi</li>
+                  </a>
+                  <a href="harcamaEkle.php">
+                      <li style="margin-left: 10%" class="list-group-item  p-2">Harcama Ekle</li>
+                  </a>
+              </ul>
+              <a href="hareketler.php">
+                  <li class="list-group-item p-3">Hareketler</li>
+              </a><a href="kategoriler.php">
+                  <li class="list-group-item p-3">Kategoriler</li>
+              </a>
+              <a href="genelBakis.php">
+                  <li class="list-group-item p-3">Genel Bakış</li>
+              </a>
+
+              <a href="kullaniciIslemleri.php">
+                  <li class="list-group-item p-3">Kullanıcı İşlemleri</li>
+              </a>
+          </ul>
+      </div>
 
     <div class="main-right">
       <div class="hesaplar">
-          <button style="float: right" type="button" class="btn btn-success" data-toggle="modal" data-target="#hesapAc">
-              Hesap ekle
-          </button>
+          <button style="float: right; margin-top: -10px;" type="button" class="btn btn-success" data-toggle="modal" data-target="#hesapAc"> Hesap ekle </button>
 
         <h5>Hesap detayları</h5>
 
@@ -59,7 +58,6 @@
               <th scope="col">Hesap No</th>
               <th scope="col">Hesap Adı</th>
               <th scope="col">Hesap Türü</th>
-              <th scope="col">Hesap Sahibi</th>
               <th scope="col">Hesap Bakiyesi</th>
               <th scope="col">Para Birimi</th>
               <th scope="col"></th>
@@ -78,8 +76,6 @@
                     $accountId = $accounts['Id'];
                     $accountName = $accounts['Name'];
                     $accountType = $accounts['Type'];
-                    $accountOwnerFirstName = $accounts['FirstName'];
-                    $accountOwnerLastName = $accounts['LastName'];
                     $accountBalance = $accounts['Balance'];
                     $accountCurrency = $accounts['Currency'];
           ?>
@@ -87,16 +83,13 @@
               <th scope="row"><?php echo $accountId; ?></th>
               <td><?php echo $accountName; ?></td>
               <td><?php echo $accountType; ?></td>
-              <td><?php echo $accountOwnerFirstName." ".$accountOwnerLastName ; ?></td>
               <td><?php echo $accountBalance; ?></td>
                 <td><?php echo $accountCurrency; ?></td>
               <td class="p-1">
-                <button type="button" class="btn btn-info m-0">
-                  Düzenle
-                </button>
+                <button type="button" class="btn btn-info m-0 editAccount" id="<?php echo $accountId; ?>">Düzenle</button>
               </td>
               <td class="p-1">
-                <button type="button" class="btn btn-danger m-0">Sil</button>
+                <button type="button" class="btn btn-danger m-0 delAccount" id="<?php echo $accountId; ?>">Sil</button>
               </td>
             </tr>
           <?php
@@ -156,8 +149,57 @@
           </div>
         </div>
       </div>
-    </div>
 
+    </div>
+      <!-- View Deleting Data Modal -->
+      <div class="modal fade" id="delViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-md" role="document">
+              <div class="modal-content">
+                  <form action="" method="post" id="deleteForm">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Silmek İstedinize Emin Misiniz?</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body" id="delete_details">
+
+
+
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" id="delete">Sil</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div><!-- View Deleting Data Modal End -->
+      <!-- Update Modal -->
+      <div class="modal fade" id="editEmpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <form action="" method="post" id="updateForm">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Hesabı Düzenle</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel"></h4>
+                      </div>
+                      <div class="modal-body" id="update_details">
+
+
+
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" id="update">Kaydet</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div><!-- Update Modal End -->
   </div>
   </div>
   <!-- Bootstrap gerekli js kodları -->
@@ -199,5 +241,68 @@
                }
             });
         });
+
+        //View Deleting Account
+        $(document).on('click','.delAccount',function(){
+            var accountId = $(this).attr('id');
+            $.ajax({
+                url:"backend/deleteViewAccount.php",
+                type:"POST",
+                data:{accountId:accountId},
+                success:function(data){
+                    $("#delete_details").html(data);
+                    $("#delViewModal").modal('show');
+                }
+            });
+        });
+
+        //Delete Account
+        $(document).on('click','#delete',function(){
+
+            $.ajax({
+                url:"backend/deleteAccount.php",
+                type:"POST",
+                data:$("#deleteForm").serialize(),
+                success:function(data){
+                    alert("Hesap başarıyla silindi!");
+                    $("#delViewModal").modal('hide');
+                    location.reload();
+                }
+            });
+        });
+
+        //Edit Account
+        $(document).on('click','.editAccount',function(){
+
+            var accountId = $(this).attr('id');
+
+            $.ajax({
+                url:"backend/editAccount.php",
+                type:"POST",
+                data:{accountId:accountId},
+                success:function(data){
+                    $("#update_details").html(data);
+                    $("#editEmpModal").modal('show');
+                }
+            });
+
+        });
+
+        //Update Account
+        $(document).on('click','#update',function(){
+
+            $.ajax({
+                url:"backend/updateAccount.php",
+                type:"POST",
+                data:$("#updateForm").serialize(),
+                success:function(data){
+                    alert("Hesap başarıyla güncellendi!");
+                    $("#editEmpModal").modal('hide');
+                    location.reload();
+                }
+            });
+
+        });
+
     });
 </script>

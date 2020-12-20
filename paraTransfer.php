@@ -8,9 +8,7 @@
   <link rel="icon" type="image/png" href="assets/calculate.png" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Paranı Yönet - Hesap</title>
 </head>
 
@@ -18,30 +16,30 @@
   <div class="main-content">
     <div class="sidebar">
       <ul class="list-group">
-        <a href="hesapDetay.html">
+        <a href="hesapDetay.php">
           <li class="list-group-item active p-3">Hesap İşlemleri</li>
         </a>
         <ul class="list-group">
-            <a href="hesapDetay.html">
+            <a href="hesapDetay.php">
                 <li style="margin-left: 10%" class="list-group-item  p-2">Hesap Detayları</li>
               </a>
-              <a href="paraTransfer.html">
+              <a href="paraTransfer.php">
                 <li style="margin-left: 10%" class="list-group-item active p-2">Para Tranferi</li>
               </a>
-              <a href="harcamaGir.html">
-                <li style="margin-left: 10%" class="list-group-item  p-2">Harcama Yapma</li>
+              <a href="harcamaEkle.php">
+                <li style="margin-left: 10%" class="list-group-item  p-2">Harcama Ekle</li>
               </a>
         </ul>
-        <a href="hareketler.html">
+        <a href="hareketler.php">
           <li class="list-group-item p-3">Hareketler</li>
-        </a><a href="kategoriler.html">
+        </a><a href="kategoriler.php">
           <li class="list-group-item p-3">Kategoriler</li>
         </a>
-        <a href="genelBakis.html">
+        <a href="genelBakis.php">
           <li class="list-group-item p-3">Genel Bakış</li>
         </a>
 
-        <a href="kullaniciIslemleri.html">
+        <a href="kullaniciIslemleri.php">
           <li class="list-group-item p-3">Kullanıcı İşlemleri</li>
         </a>
       </ul>
@@ -52,76 +50,74 @@
       <div class="para-tranfer">
         <h5>Para transferi</h5>
 
-        <form>
+        <form id="paraTransfer">
 
           <label for="sendingAccount">Gönderen hesap</label>
           <select class="custom-select" id="sendingAccount">
-            <option value="">ziraat</option>
-            <option value="lastOneMonth">cüzdan</option>
-            <option value="lastThreeMonth">Son üç ay</option>
+              <?php
+              require_once 'backend/dbconnect.php';
+              $userId = $_SESSION['userId'];
+              foreach ($db->query("SELECT * FROM Accounts WHERE Owner = $userId") as $accountName ){
+                  echo '<option value="'.$accountName["Id"].'">'.$accountName["Name"].' ('.$accountName['Type'].') '.' ('.$accountName['Currency'].')'.'</option>';
+              }
+              ?>
           </select>
-
           <label for="gettingAccount">Alan hesap</label>
           <select class="custom-select" id="gettingAccount">
-            <option value="">ziraat</option>
-            <option value="">garanti</option>
-            <option value="">Son üç ay</option>
+              <?php
+              foreach ($db->query("SELECT * FROM Accounts WHERE Owner = $userId") as $accountName ){
+                  echo '<option value="'.$accountName["Id"].'">'.$accountName["Name"].' ('.$accountName['Type'].') '.' ('.$accountName['Currency'].')'.'</option>';
+              }
+              ?>
           </select>
 
           <label for="sendingAmount">Miktar</label>
-          <input type="number" class="form-control" id="sendingAmount" />
+          <input type="number" class="form-control" name="sendingAmount" />
 
-          <button type="submit" class="btn btn-primary my-1">ONAY</button>
+          <button type="submit" class="btn btn-primary my-1" id="gonder" onclick="return false">ONAY</button>
 
         </form>
       </div>
 
-      <!-- KAYIT OLMA PENCERESİ -->
-      <div class="modal fade" id="hesapAc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Hesap Aç</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body ">
-              <form action="" method="" id="kayitformu">
-                <label>Hesap Adı</label>
-                <input class="form-control" type="text" name="accountName" required>
-                <br>
-                <label>Bakiye</label>
-                <input class="form-control" type="text" name="accountBalance" required>
-                <br>
-                <label>Hesap Türü:</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Nakit">
-                  <label class="form-check-label" for="exampleRadios2">
-                    Nakit
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Kart">
-                  <label class="form-check-label" for="exampleRadios2">
-                    Kart
-                  </label>
-                </div>
-
-                <br>
-                <div class="text-center">
-                  <input class="btn btn-primary" type="submit" id="kaydet" onclick="return false" value="Kayıt Ol">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   </div>
+
   </div>
 </body>
 </html>
 
+<script>
+    $(document).ready(function(){
 
+        $("#gonder").click(function(){
+
+            var sendingAccount = document.getElementById('sendingAccount');
+            var sendingAccount = sendingAccount.options[sendingAccount.selectedIndex].value;
+
+            var gettingAccount = document.getElementById('gettingAccount');
+            var gettingAccount = gettingAccount.options[gettingAccount.selectedIndex].value;
+
+            var sendingAmount = $("input[name=sendingAmount]").val();
+
+            console.log(sendingAccount,gettingAccount,sendingAmount);
+
+            $.ajax({
+                url: "backend/moneyTransfer.php",
+                type: "POST",
+                data:{
+                    'sendingAccount':sendingAccount,
+                    'gettingAccount':gettingAccount,
+                    'sendingAmount':sendingAmount
+                },
+                success: function(result){
+                    alert(result);
+                    if (result == "Transfer işlemi başarıyla gerçekleştirildi!"){
+                        $("input[name=sendingAmount]").val('');
+                    }
+                }
+            });
+        });
+
+    });
+</script>

@@ -20,19 +20,19 @@
     <div class="main-content">
       <div class="sidebar">
         <ul class="list-group">
-          <a href="hesapDetay.html"
+          <a href="hesapDetay.php"
             ><li class="list-group-item p-3">Hesap İşlemleri</li></a
           >
-          <a href="hareketler.html"
+          <a href="hareketler.php"
             ><li class="list-group-item p-3">Hareketler</li></a
-          ><a href="kategoriler.html"
+          ><a href="kategoriler.php"
             ><li class="list-group-item p-3">Kategoriler</li></a
           >
-          <a href="genelBakis.html"
+          <a href="genelBakis.php"
             ><li class="list-group-item p-3 active">Genel Bakış</li></a
           >
 
-          <a href="kullaniciIslemleri.html"
+          <a href="kullaniciIslemleri.php"
             ><li class="list-group-item p-3">Kullanıcı İşlemleri</li></a
           >
         </ul>
