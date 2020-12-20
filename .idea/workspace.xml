@@ -75,7 +75,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608215356460</updated>
       <workItem from="1608215362182" duration="11935000" />
-      <workItem from="1608380135534" duration="18874000" />
+      <workItem from="1608380135534" duration="19802000" />
+      <workItem from="1608459634973" duration="8852000" />
     </task>
     <servers />
   </component>
@@ -92,6 +93,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="341" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608396899975">
@@ -102,10 +104,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="760" y="262" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608216003368" />
-    <state x="794" y="463" key="NewPhpFileDialog" timestamp="1608398493984">
+    <state x="794" y="463" key="NewPhpFileDialog" timestamp="1608460756440">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="794" y="463" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608398493984" />
+    <state x="794" y="463" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608460756440" />
+    <state x="777" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608459754270">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="777" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1608459754270" />
     <state x="616" y="250" key="run.anything.popup" timestamp="1608398939510">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

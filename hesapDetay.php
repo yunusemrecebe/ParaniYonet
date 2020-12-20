@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="TR">
 
 <head>
   <meta charset="UTF-8" />
@@ -30,16 +30,16 @@
                 <li style="margin-left: 10%" class="list-group-item  p-2">Harcama Yapma</li>
               </a>
         </ul>
-        <a href="hareketler.html">
+        <a href="hareketler.php">
           <li class="list-group-item p-3">Hareketler</li>
         </a><a href="kategoriler.html">
           <li class="list-group-item p-3">Kategoriler</li>
         </a>
-        <a href="genelBakis.html">
+        <a href="genelBakis.php">
           <li class="list-group-item p-3">Genel Bakış</li>
         </a>
 
-        <a href="kullaniciIslemleri.html">
+        <a href="kullaniciIslemleri.php">
           <li class="list-group-item p-3">Kullanıcı İşlemleri</li>
         </a>
       </ul>
@@ -47,46 +47,49 @@
 
     <div class="main-right">
       <div class="hesaplar">
-        <div class="para-birimi">
-          <h5>Para birimi</h5>
-          <select class="custom-select m-0" id="currency">
-            <option value="">TL</option>
-            <option value="">EURO</option>
-            <option value="">USD</option>
-          </select>
-        </div>
+          <button style="float: right" type="button" class="btn btn-success" data-toggle="modal" data-target="#hesapAc">
+              Hesap ekle
+          </button>
 
         <h5>Hesap detayları</h5>
 
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Hesap</th>
+              <th scope="col">Hesap No</th>
+              <th scope="col">Hesap Adı</th>
               <th scope="col">Hesap Türü</th>
-              <th scope="col">Bakiye</th>
+              <th scope="col">Hesap Sahibi</th>
+              <th scope="col">Hesap Bakiyesi</th>
+              <th scope="col">Para Birimi</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">cüzdan</th>
-              <td>Nakit</td>
-              <td>1000tl</td>
-              <td class="p-1">
-                <button type="button" class="btn btn-info m-0">
-                  Düzenle
-                </button>
-              </td>
-              <td class="p-1">
-                <button type="button" class="btn btn-danger m-0">Sil</button>
-              </td>
-            </tr>
 
+          <?php
+          require_once 'backend/dbconnect.php';
+          $userId = $_SESSION['userId'];
+
+            $accountsQuery = $db->query("SELECT a.Id, a.Name, a.Type, a.Balance, a.Owner, a.Currency, u.FirstName, u.LastName FROM Accounts a JOIN Users u ON a.Owner = u.Id WHERE a.Owner = $userId");
+
+                while ($accounts = $accountsQuery->fetch(PDO::FETCH_ASSOC)){
+                    $accountId = $accounts['Id'];
+                    $accountName = $accounts['Name'];
+                    $accountType = $accounts['Type'];
+                    $accountOwnerFirstName = $accounts['FirstName'];
+                    $accountOwnerLastName = $accounts['LastName'];
+                    $accountBalance = $accounts['Balance'];
+                    $accountCurrency = $accounts['Currency'];
+          ?>
             <tr>
-              <th scope="row">ziraat</th>
-              <td>Kart</td>
-              <td>1320tl</td>
+              <th scope="row"><?php echo $accountId; ?></th>
+              <td><?php echo $accountName; ?></td>
+              <td><?php echo $accountType; ?></td>
+              <td><?php echo $accountOwnerFirstName." ".$accountOwnerLastName ; ?></td>
+              <td><?php echo $accountBalance; ?></td>
+                <td><?php echo $accountCurrency; ?></td>
               <td class="p-1">
                 <button type="button" class="btn btn-info m-0">
                   Düzenle
@@ -96,17 +99,16 @@
                 <button type="button" class="btn btn-danger m-0">Sil</button>
               </td>
             </tr>
+          <?php
+                }
+          ?>
           </tbody>
         </table>
-
-        <button style="float: right" type="button" class="btn btn-success" data-toggle="modal" data-target="#hesapAc">
-          Hesap ekle
-        </button>
       </div>
 
      
 
-      <!-- KAYIT OLMA PENCERESİ -->
+      <!-- Hesap Oluşturma Penceresi -->
       <div class="modal fade" id="hesapAc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -124,6 +126,13 @@
                 <label>Bakiye</label>
                 <input class="form-control" type="text" name="accountBalance" required>
                 <br>
+                <label>Para Birimi</label>
+                  <select class="custom-select m-0" id="accountCurrency">
+                      <option value="TL">TL</option>
+                      <option value="EURO">EURO</option>
+                      <option value="USD">USD</option>
+                  </select>
+                <br>
                 <label>Hesap Türü:</label>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Nakit">
@@ -140,7 +149,7 @@
 
                 <br>
                 <div class="text-center">
-                  <input class="btn btn-primary" type="submit" id="kaydet" onclick="return false" value="Kayıt Ol">
+                  <input class="btn btn-primary" type="submit" id="kaydet" onclick="return false" value="Oluştur">
                 </div>
               </form>
             </div>
@@ -166,9 +175,9 @@
 
             var accountName = $("input[name=accountName]").val();
             var accountBalance = $("input[name=accountBalance]").val();
-            //var accountType = $("input[name=exampleRadios]").val();
+            var accountCurrency = document.getElementById('accountCurrency');
+            var accountCurrency = accountCurrency.options[accountCurrency.selectedIndex].value;
             var accountType = document.querySelector('input[name="exampleRadios"]:checked').value;
-            console.log(accountName,accountBalance,accountType);
 
             $.ajax({
                 url: "backend/createAccount.php",
@@ -176,15 +185,16 @@
                 data:{
                     'accountName':accountName,
                     'accountBalance':accountBalance,
+                    'accountCurrency':accountCurrency,
                     'accountType':accountType
                 },
                 success: function(result){
                     alert(result);
-                    if (result == "Hesap Oluşturuldu!"){
+                    if (result == "Hesap oluşturuldu!"){
                         $("#hesapAc").modal('hide');
                         $("input[name=accountName]").val('');
                         $("input[name=accountBalance]").val('');
-                        $("input[name=exampleRadios]").val('');
+                        location.reload();
                     }
                }
             });
