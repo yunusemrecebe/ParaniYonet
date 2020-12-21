@@ -13,13 +13,13 @@
 
 <body>
   <div class="main-content">
-    <div class="sidebar  animate__animated animate__pulse">
+    <div class="sidebar">
       <ul class="list-group">
         <a href="hesapDetay.php">
           <li class="list-group-item p-3">Hesap İşlemleri</li>
         </a>
         <a href="hareketler.php">
-          <li class="list-group-item p-3 active">Hareketler</li>
+          <li class="list-group-item p-3 active animate__animated animate__fadeIn">Hareketler</li>
         </a>
         <a href="kategoriler.php">
           <li class="list-group-item p-3">Kategoriler</li>

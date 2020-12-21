@@ -13,7 +13,7 @@
 
 <body>
   <div class="main-content">
-    <div class="sidebar  animate__animated animate__pulse">
+    <div class="sidebar">
       <ul class="list-group">
         <a href="hesapDetay.php">
           <li class="list-group-item p-3">Hesap İşlemleri</li>
@@ -28,7 +28,7 @@
         </a>
 
         <a href="kullaniciIslemleri.php">
-          <li class="list-group-item active p-3">Kullanıcı İşlemleri</li>
+          <li class="list-group-item active p-3 animate__animated animate__fadeIn">Kullanıcı İşlemleri</li>
         </a>
       </ul>
     </div>

@@ -15,17 +15,17 @@
 
 <body>
   <div class="main-content">
-    <div class="sidebar  animate__animated animate__pulse">
+    <div class="sidebar">
       <ul class="list-group">
         <a href="hesapDetay.php">
-          <li class="list-group-item active p-3">Hesap İşlemleri</li>
+          <li class="list-group-item active p-3 animate__animated animate__fadeIn">Hesap İşlemleri</li>
         </a>
         <ul class="list-group">
           <a href="hesapDetay.php">
             <li style="margin-left: 10%" class="list-group-item  p-2">Hesap Detayları</li>
           </a>
           <a href="paraTransfer.php">
-            <li style="margin-left: 10%" class="list-group-item active p-2">Para Tranferi</li>
+            <li style="margin-left: 10%" class="list-group-item active p-2 animate__animated animate__fadeIn">Para Tranferi</li>
           </a>
           <a href="harcamaEkle.php">
             <li style="margin-left: 10%" class="list-group-item  p-2">Harcama Ekle</li>

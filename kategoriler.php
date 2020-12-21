@@ -21,7 +21,7 @@
 
   <body>
     <div class="main-content">
-      <div class="sidebar  animate__animated animate__pulse">
+      <div class="sidebar">
         <ul class="list-group">
           <a href="hesapDetay.php"
             ><li class="list-group-item p-3">Hesap İşlemleri</li></a
@@ -29,7 +29,7 @@
           <a href="hareketler.php"
             ><li class="list-group-item p-3">Hareketler</li></a
           ><a href="kategoriler.php"
-            ><li class="list-group-item active p-3">Kategoriler</li></a
+            ><li class="list-group-item active p-3 animate__animated animate__fadeIn">Kategoriler</li></a
           >
           <a href="genelBakis.php"><li class="list-group-item p-3">Genel Bakış</li></a>
 
