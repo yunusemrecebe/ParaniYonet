@@ -3,16 +3,21 @@
   width: 90%;
   display: flex;
   margin: auto;
+  flex-wrap : wrap;
+  justify-content: center;
 }
 
 .sidebar {
   width: 25%;
+  min-width: 200px;
+  margin-bottom: 20px;
 }
 
 .main-right {
   font-family: Arial;
-  margin: 2% 0 0 2%;
-  width: 75%;
+  margin: 1% 0 0 1%;
+
+  width: 74%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -22,3 +27,14 @@
   margin: 10px;
   min-width: 200px;
 }
+
+@media only screen and (max-width: 998px) {
+  .main-right {
+  justify-content:center;
+  }
+
+  .harcama-yap {
+    width: 100%;
+  }
+}
+

@@ -3,10 +3,14 @@
   width: 90%;
   display: flex;
   margin: auto;
+  flex-wrap : wrap;
+  justify-content : center;
 }
 
 .sidebar {
   width: 25%;
+  min-width: 200px;
+  margin-bottom: 20px;
 }
 
 .main-right {

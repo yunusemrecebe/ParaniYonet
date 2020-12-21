@@ -8,6 +8,10 @@
   <link rel="icon" type="image/png" href="assets/calculate.png" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Paranı Yönet - Hesap</title>
 </head>
@@ -15,8 +19,8 @@
 <body>
   <div class="main-content">
 
-      <div class="sidebar">
-          <ul class="list-group">
+      <div class="sidebar animate__animated animate__pulse">
+          <ul class="list-group ">
               <a href="hesapDetay.php">
                   <li id="1" class="list-group-item active p-3">Hesap İşlemleri</li>
               </a>
@@ -52,7 +56,7 @@
 
         <h5>Hesap detayları</h5>
 
-        <table class="table table-striped">
+        <table class="table table-striped hesap-detay-table">
           <thead>
             <tr>
               <th scope="col">Hesap No</th>

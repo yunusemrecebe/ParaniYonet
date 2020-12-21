@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="style/kategoriler.css" />
     <link rel="icon" type="image/png" href="assets/calculate.png" />
     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -17,7 +21,7 @@
 
   <body>
     <div class="main-content">
-      <div class="sidebar">
+      <div class="sidebar  animate__animated animate__pulse">
         <ul class="list-group">
           <a href="hesapDetay.php"
             ><li class="list-group-item p-3">Hesap İşlemleri</li></a

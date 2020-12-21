@@ -3,33 +3,41 @@
   width: 90%;
   display: flex;
   margin: auto;
+  flex-wrap : wrap;
+  justify-content: center;
 }
 
 .sidebar {
   width: 25%;
+  min-width: 200px;
+  margin-bottom: 20px;
 }
 
 .main-right {
-  margin: 2% 0 0 2%;
-  width: 75%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1% 0 0 1%;
+  width: 74%;
 }
-
+            
 .circle-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 300px;
   height: 300px;
-  background: #e8e8e8;
-  -moz-border-radius: 150px;
-  -webkit-border-radius: 150px;
-  border-radius: 150px;
   margin: 10px;
-  display: inline-block;
+  background: #e8e8e8;
+  border-radius: 100%;
   -webkit-box-shadow: 11px 14px 37px -19px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 11px 14px 37px -19px rgba(0, 0, 0, 0.75);
   box-shadow: 11px 14px 37px -19px rgba(0, 0, 0, 0.75);
 }
 
 .circle-card img {
-  margin: 30px 0 0 97px;
   width: 106px;
   height: 106px;
 }
@@ -45,3 +53,54 @@
 }
 
 
+@media only screen and (max-width: 1300px) {
+  .main-right {
+    width: 95%;
+    justify-content: center;
+  }
+
+  .circle-card{
+    width: 250px;
+    height: 250px;
+  }
+  .circle-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .circle-card h4 {
+    font-size: 1.3em;
+    margin-top: 5px;
+  }
+  
+  .circle-card h1 {
+    font-size: 1.6em;
+    margin-top: 15px;
+  }
+
+  
+
+}
+
+@media only screen and (max-width: 768px) {
+  .main-content{
+    width:100%;
+  }
+
+  .main-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .circle-card{
+    width: 190px;
+    height: 190px;
+  }
+
+  .circle-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  
+}

@@ -1,23 +1,50 @@
 .main-content {
-    max-width: 1700px;
-    width: 90%;
-    display: flex;
-    margin: auto;
-  }
-  
-  .sidebar {
-    width: 25%;
-  }
-  
+  max-width: 1700px;
+  width: 90%;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 25%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.main-right {
+  font-family: Arial;
+  margin: 2% 0 0 2%;
+  width: 73%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-kullanici {
+  width: 40%;
+  padding: 6px;
+  border: 1px ridge;
+}
+
+@media only screen and (max-width: 1300px) {
   .main-right {
-    font-family: Arial;
-    margin: 2% 0 0 2%;
-    width: 75%;
-    display: flex;
-    flex-wrap: wrap;
+    width: 85%;
+    justify-content: center;
   }
-  
- .form-kullanici{
-    
-     width: 40%;
- }
+
+  .form-kullanici {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main-right {
+    width: 95%;
+    justify-content: center;
+  }
+
+  .form-kullanici {
+    width: 90%;
+  }
+}

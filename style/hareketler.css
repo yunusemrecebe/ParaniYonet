@@ -3,18 +3,45 @@
   width: 90%;
   display: flex;
   margin: auto;
+  flex-wrap : wrap;
+  justify-content : center;
 }
 
 .sidebar {
   width: 25%;
+  min-width: 200px;
+  margin-bottom: 20px;
+  
 }
 
 .main-right {
-  margin: 1% 0 0 2%;
-  width: 75%;
+  margin-left:5px;
+  margin: 1% 0 0 1%;
+  width: 74%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .date-form {
   padding: 5px;
   float: right;
+}
+
+@media only screen and (max-width: 1300px) {
+  .main-right {
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .main-content{
+    width:100%;
+  }
+  
+  .date-form{
+    width:40%;
+  }
+ 
+  
 }
