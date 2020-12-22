@@ -42,7 +42,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/backend/createAccount.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/backend/createSpending.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/backend/spendingListFilter.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/harcamaEkle.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1lmw0AEPcvGohcQ6aonjmD3m2jc" />
@@ -87,7 +86,7 @@
       <workItem from="1608380135534" duration="19802000" />
       <workItem from="1608459634973" duration="27383000" />
       <workItem from="1608574814520" duration="5447000" />
-      <workItem from="1608622724273" duration="1393000" />
+      <workItem from="1608622724273" duration="5857000" />
     </task>
     <servers />
   </component>
@@ -107,6 +106,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="218" key="#Inspections" timestamp="1608626621134">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="586" y="218" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1608626621134" />
     <state x="722" y="341" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608396899975">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
