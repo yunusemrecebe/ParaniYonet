@@ -121,7 +121,7 @@
                 <input class="form-control" type="text" name="accountName" required>
                 <br>
                 <label>Bakiye</label>
-                <input class="form-control" type="text" name="accountBalance" required>
+                <input type="number" class="form-control" type="text" name="accountBalance" required>
                 <br>
                 <label>Para Birimi</label>
                   <select class="custom-select m-0" id="accountCurrency">
@@ -161,7 +161,7 @@
               <div class="modal-content">
                   <form action="" method="post" id="deleteForm">
                       <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Silmek İstedinize Emin Misiniz?</h5>
+                          <h5 class="modal-title" id="exampleModalLabel">Hesabı Silmek İstedinize Emin Misiniz?</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                           </button>
