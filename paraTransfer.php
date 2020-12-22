@@ -18,7 +18,7 @@
     <div class="sidebar">
       <ul class="list-group">
         <a href="hesapDetay.php">
-          <li class="list-group-item active p-3 animate__animated animate__fadeIn">Hesap İşlemleri</li>
+          <li class="list-group-item active p-3 ">Hesap İşlemleri</li>
         </a>
         <ul class="list-group">
           <a href="hesapDetay.php">
