@@ -1,18 +1,3 @@
-.main-content {
-  max-width: 1700px;
-  width: 90%;
-  display: flex;
-  margin: auto;
-  flex-wrap : wrap;
-  justify-content: center;
-}
-
-.sidebar {
-  width: 25%;
-  min-width: 200px;
-  margin-bottom: 20px;
-}
-
 .main-right {
   display: flex;
   flex-direction: row;
@@ -53,12 +38,7 @@
 }
 
 
-@media only screen and (max-width: 1300px) {
-  .main-right {
-    width: 95%;
-    justify-content: center;
-  }
-
+@media only screen and (max-width: 1366px) {
   .circle-card{
     width: 250px;
     height: 250px;

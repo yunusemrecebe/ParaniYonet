@@ -1,18 +1,3 @@
-.main-content {
-  max-width: 1700px;
-  width: 90%;
-  display: flex;
-  margin: auto;
-  flex-wrap : wrap;
-  justify-content : center;
-}
-
-.sidebar {
-  width: 25%;
-  min-width: 200px;
-  margin-bottom: 20px;
-}
-
 .main-right {
   font-family: Arial;
   margin: 1% 0 0 1%;
@@ -21,28 +6,6 @@
   flex-wrap: wrap;
 }
 
-.hesaplar {
-  width: 80%;
-  margin: 10px;
-  min-width: 500px;
-}
-
-.para-birimi {
-  width: 40%;
-  margin-bottom: 10px;
-}
-
-@media only screen and (max-width: 1300px) {
-  .main-right {
-    margin: 0;
-    width: 100%;
-  }
-
-}
-
-@media only screen and (max-width: 768px) {
-  .main-content{
-    width:100%;
-  }
-  
+.hesaplar{
+  margin:10px 0 0 10px;
 }

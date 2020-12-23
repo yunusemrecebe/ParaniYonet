@@ -1,18 +1,3 @@
-.main-content {
-  max-width: 1700px;
-  width: 90%;
-  display: flex;
-  margin: auto;
-  flex-wrap : wrap;
-  justify-content: center;
-}
-
-.sidebar {
-  width: 25%;
-  min-width: 200px;
-  margin-bottom: 20px;
-}
-
 .main-right {
   font-family: Arial;
   margin: 1% 0 0 1%;
@@ -23,11 +8,12 @@
 }
 
 .money-info-container {
-  min-width: 350px;
+  min-width: 250px;
   display: flex;
   width: 48%;
   flex-direction: column;
 }
+
 .money-info-card {
   width: 98%;
   background: #e8e8e8;
@@ -86,12 +72,7 @@ ol {
 }
 
 
-@media only screen and (max-width: 1300px) {
-  .main-right {
-    width: 85%;
-    justify-content: center;
-  }
-
+@media only screen and (max-width: 1200px) {
   .money-info-card img {
     width: 150px;
     height: 150px;
@@ -122,15 +103,17 @@ ol {
 }
 
 @media only screen and (max-width: 768px) {
-  .main-right {
-    width: 95%;
-    justify-content: center;
+    .main-right{
+      width:98%;
+    }
+  
+  .money-info-container{
+    width:75%;
   }
-
+  
   .money-info-card img {
     width: 100px;
     height: 100px;
   }
 
-  
 }
