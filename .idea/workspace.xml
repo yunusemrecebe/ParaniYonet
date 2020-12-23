@@ -19,7 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cab517dd-1903-44a9-b5f0-74e53dc5870c" name="Default Changelist" comment="" />
+    <list default="true" id="cab517dd-1903-44a9-b5f0-74e53dc5870c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/filterSpending.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/createSpending.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/createSpending.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbconnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dbconnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/updateAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/updateAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genelBakis.php" beforeDir="false" afterPath="$PROJECT_DIR$/genelBakis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/harcamaEkle.php" beforeDir="false" afterPath="$PROJECT_DIR$/harcamaEkle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hareketler.php" beforeDir="false" afterPath="$PROJECT_DIR$/hareketler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/hareketler.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/hareketler.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/hosgeldin.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/hosgeldin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +100,7 @@
       <workItem from="1608459634973" duration="27383000" />
       <workItem from="1608574814520" duration="5447000" />
       <workItem from="1608622724273" duration="5857000" />
+      <workItem from="1608743038550" duration="12562000" />
     </task>
     <servers />
   </component>
@@ -104,35 +118,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="586" y="218" key="#Inspections" timestamp="1608626621134">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="586" y="218" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1608626621134" />
-    <state x="722" y="341" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608396899975">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="722" y="341" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1608396899975" />
-    <state x="760" y="262" key="NewPhpClassDialog" timestamp="1608216003368">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="760" y="262" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608216003368" />
-    <state x="794" y="463" key="NewPhpFileDialog" timestamp="1608575231869">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="794" y="463" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608575231869" />
-    <state x="777" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608459754270">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="777" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1608459754270" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1608482440977">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1608482440977" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1608482230223">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1608482230223" />
   </component>
 </project>

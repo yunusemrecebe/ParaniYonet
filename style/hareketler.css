@@ -1,31 +1,48 @@
 .main-right {
-  margin-left:5px;
+  margin-left: 5px;
   margin: 1% 0 0 1%;
   width: 74%;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
 .date-form {
-  padding: 5px;
-  float: right;
+  display: flex;
+  margin-left: auto;
+}
+
+.date-form div input{
+  border:hidden;
+}
+
+input:focus{
+  outline: none;
+}
+
+.date-form div{
+  padding:5px;
+  border: .5px solid gray;
+  border-radius:5px;
+  display: inline;
+}
+
+.date-form div i{
+  margin-left: 3px;
 }
 
 @media only screen and (max-width: 900px) {
- .main-right {
-   width:100%;
- }
-
+  .main-right {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-  .main-content{
-    width:100%;
+  .main-content {
+    width: 100%;
   }
-  
-  .date-form{
-    width:40%;
+
+  .date-form {
+    min-width: 600px;
   }
- 
-  
 }

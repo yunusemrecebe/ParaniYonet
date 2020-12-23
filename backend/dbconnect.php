@@ -6,5 +6,9 @@ try {
     print $e->getMessage();
 }
 //error_reporting(0);
-session_start();
+
+if(session_status()==1){
+    session_start();
+}
+
 ?>

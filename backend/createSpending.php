@@ -6,7 +6,7 @@ $account = $_POST['account'];
 $category = $_POST['category'];
 $business = $_POST['business'];
 $amount = $_POST['amount'];
-$time = date('Y.m.d H:i:s');
+$time = date('Y.m.d');
 
 if($_POST['account'] != "" && $_POST['category'] != "" && $_POST['business'] != "" && $_POST['amount'] != ""){
     if ($amount>0){

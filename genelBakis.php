@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="TR">
 
 <head>
   <meta charset="UTF-8" />
@@ -46,46 +46,42 @@
       </ul>
     </div>
 
+<?php
+require_once 'backend/functions.php';
+?>
+
     <div class="main-right">
-
-
       <div class="money-info-container">
         <div class="money-info-card">
           <img src="assets/spending.png" />
-          <h3>Giderler</h3>
-          <h1 style="color:#ED4337">-600TL</h1>
+          <h3>Aylık Giderler</h3>
+          <h1 style="color:#ED4337"><?php ViewSumSpendingByDate("MONTH") ?></h1>
         </div>
         <div class="ol-tag-week">
-          <h4>Haftalık harcama miktarı: -1580.4</h4>
+          <h4>Haftalık Giderler: <?php ViewSumSpendingByDate("WEEK") ?></h4>
         </div>
 
         <div class="ol-tag-day">
-          <h4>Bugün yapılan harcamalar</h4>
+          <h4>Bugünkü giderler: <?php ViewSumSpendingByDate("DAY") ?></h4>
         </div>
 
         <ol style="list-style: decimal;">
-          <li>Lorem, ipsum dolor. -584</li>
-          <li>Iusto, adipisci eum. -848</li>
-          <li>Fuga, sit labore! -4</li>
+         <?php ViewSpendingsByDate("DAY") ?>
         </ol>
       </div>
 
       <div class="money-info-container">
         <div class="money-info-card">
           <img src="assets/income.png" />
-          <h3>Gelirler</h3>
-          <h1 style="color:#00FF7F">+300TL</h1>
+          <h3>Aylık Gelirler</h3>
+          <h1 style="color:#00FF7F"><?php ViewSumIncomesByDate("MONTH"); ?></h1>
         </div>
         <div class="ol-tag-day">
           <h4>Bugünkü gelirler</h4>
         </div>
 
         <ol style="list-style: decimal;">
-          <li>Lorem, ipsum dolor. +200</li>
-          <li>Iusto, adipisci eum. +35</li>
-          <li>Fuga, sit labore! +65.5</li>
-          <li>Iusto, adipisci eum.</li>
-          <li>Fuga, sit labore!</li>
+          <?php ViewIncomesByDate("DAY"); ?>
         </ol>
       </div>
 
