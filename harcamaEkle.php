@@ -40,7 +40,7 @@
           <a href="paraTransfer.php">
             <li style="margin-left: 10%" class="list-group-item p-2">Para Tranferi</li>
           </a>
-          <a href="harcamaGir.php">
+          <a href="harcamaEkle.php">
             <li style="margin-left: 10%" class="list-group-item active p-2 animate__animated animate__fadeIn">Harcama Ekle</li>
           </a>
         </ul>

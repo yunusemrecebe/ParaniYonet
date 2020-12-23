@@ -41,6 +41,7 @@ require_once 'backend/functions.php';
 ?>
 
       <div class="main-right">
+
         <div class="circle-card">
           <img src="assets/fuel.png" />
           <h4>Akaryakıt</h4>
