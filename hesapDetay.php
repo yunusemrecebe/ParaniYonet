@@ -81,6 +81,7 @@
               <th scope="col">Para Birimi</th>
               <th scope="col"></th>
               <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -104,6 +105,9 @@
                 <td><?php echo $accountType; ?></td>
                 <td><?php echo $accountBalance; ?></td>
                 <td><?php echo $accountCurrency; ?></td>
+                <td class="p-1">
+                  <button type="button" class="btn btn-success m-0 addMoneyToAccount" id="<?php echo $accountId; ?>">Bakiye Ekle</button>
+                </td>
                 <td class="p-1">
                   <button type="button" class="btn btn-info m-0 editAccount" id="<?php echo $accountId; ?>">Düzenle</button>
                 </td>
@@ -219,6 +223,55 @@
         </div>
       </div>
     </div><!-- Update Modal End -->
+     <!-- Hesaba Para Ekleme Penceresi -->
+     <div class="modal fade" id="hesapAc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Hesap Aç</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+              <form action="" method="" id="kayitformu">
+                <label>Hesap Adı</label>
+                <input class="form-control" type="text" name="accountName" required>
+                <br>
+                <label>Bakiye</label>
+                <input type="number" class="form-control" type="text" name="accountBalance" required>
+                <br>
+                <label>Para Birimi</label>
+                <select class="custom-select m-0" id="accountCurrency">
+                  <option value="TL">TL</option>
+                  <option value="EURO">EURO</option>
+                  <option value="USD">USD</option>
+                </select>
+                <br>
+                <label>Hesap Türü:</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Nakit">
+                  <label class="form-check-label" for="exampleRadios2">
+                    Nakit
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Kart">
+                  <label class="form-check-label" for="exampleRadios2">
+                    Kart
+                  </label>
+                </div>
+
+                <br>
+                <div class="text-center">
+                  <input class="btn btn-primary" type="submit" id="kaydet" onclick="return false" value="Oluştur">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Para ekleme end -->
   </div>
   </div>
   <!-- Bootstrap gerekli js kodları -->
