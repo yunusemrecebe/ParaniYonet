@@ -17,6 +17,15 @@
   margin-bottom: 20px;
 }
 
+.sidebar i{
+  font-size:20px;
+  margin-right: 5px;
+}
+
+#cikisYap i{
+  color:#fb654e;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -43,7 +52,7 @@
 }
 
 #control {
-  display: none;
+   display: none;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -59,9 +68,13 @@
 
   .sidebar {
     display: none;
+    position: absolute;
+    top:88px;
+    right:1%;
   }
 
-  #control:checked ~ .sidebar {
-    display: flex;
+  #control:checked~.sidebar{
+    display: block;
   }
+
 }

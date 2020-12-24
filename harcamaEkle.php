@@ -16,94 +16,98 @@
 </head>
 
 <body>
-<div class="main-content">
+    <div class="main-content">
 
-    <div class="navbar">
-        <div class="navbar-logo">
-            <img src="assets/logo.png" />
+        <div class="navbar">
+            <div class="navbar-logo">
+                <img src="assets/logo.png" />
+            </div>
+            <div class="navbar-control">
+                <label for="control"><i class="fas fa-bars"></i></label>
+            </div>
         </div>
-        <div class="navbar-control">
-            <input type="checkbox" id="control"/>
-            <label for="control"><i class="fas fa-bars"></i></label>
-        </div>
-    </div>
 
-    <div class="sidebar">
-        <ul class="list-group">
-            <a href="hesapDetay.php">
-                <li class="list-group-item active p-3 ">Hesap İşlemleri</li>
-            </a>
+        <input type="checkbox" id="control" />
+
+        <div class="sidebar">
             <ul class="list-group">
                 <a href="hesapDetay.php">
-                    <li style="margin-left: 10%" class="list-group-item p-2">Hesap Detayları</li>
+                    <li class="list-group-item active p-3 "><i class="fas fa-money-check-alt"></i>Hesap İşlemleri</li>
                 </a>
-                <a href="paraTransfer.php">
-                    <li style="margin-left: 10%" class="list-group-item p-2">Para Tranferi</li>
+                <ul class="list-group">
+                    <a href="hesapDetay.php">
+                        <li style="margin-left: 10%" class="list-group-item p-2">Hesap Detayları</li>
+                    </a>
+                    <a href="paraTransfer.php">
+                        <li style="margin-left: 10%" class="list-group-item p-2">Para Tranferi</li>
+                    </a>
+                    <a href="harcamaEkle.php">
+                        <li style="margin-left: 10%" class="list-group-item active p-2 animate__animated animate__fadeIn">Harcama Ekle</li>
+                    </a>
+                </ul>
+                <a href="hareketler.php">
+                    <li class="list-group-item p-3"><i class="fas fa-search"></i>Hareketler</li>
                 </a>
-                <a href="harcamaEkle.php">
-                    <li style="margin-left: 10%" class="list-group-item active p-2 animate__animated animate__fadeIn">Harcama Ekle</li>
+                <a href="kategoriler.php">
+                    <li class="list-group-item p-3"><i class="fas fa-layer-group"></i>Kategoriler</li>
+                </a>
+                <a href="genelBakis.php">
+                    <li class="list-group-item p-3"><i class="far fa-eye"></i>Genel Bakış</li>
+                </a>
+                <a href="kullaniciIslemleri.php">
+                    <li class="list-group-item p-3"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
+                </a>
+                <a href="backend/logOut.php" id="cikisYap" onclick="return false">
+                    <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
                 </a>
             </ul>
-            <a href="hareketler.php">
-                <li class="list-group-item p-3">Hareketler</li>
-            </a>
-            <a href="kategoriler.php">
-                <li class="list-group-item p-3">Kategoriler</li>
-            </a>
-            <a href="genelBakis.php">
-                <li class="list-group-item p-3">Genel Bakış</li>
-            </a>
-            <a href="kullaniciIslemleri.php">
-                <li class="list-group-item p-3">Kullanıcı İşlemleri</li>
-            </a>
-        </ul>
-    </div>
-
-    <div class="main-right">
-        <div class="harcama-yap">
-            <h5>Harcama Ekle</h5>
-
-            <form>
-                <div class="form-group">
-                    <label for="spendingAccount">Kullanılan Hesap</label>
-                    <select id="spendingAccount" class="form-control">
-                        <?php
-                        require_once 'backend/dbconnect.php';
-                        $userId = $_SESSION['userId'];
-                        foreach ($db->query("SELECT * FROM Accounts WHERE Owner = $userId") as $accountName) {
-                            echo '<option value="' . $accountName["Id"] . '">' . $accountName["Name"] . ' (' . $accountName['Type'] . ') ' . ' (' . $accountName['Currency'] . ')' . '</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="spendingAmount">Tutar</label>
-                    <input type="number" class="form-control" name="spendingAmount" placeholder="Örneğin:1000" />
-                </div>
-
-                <div class="form-group">
-                    <label for="spendingCategory">Kategori</label>
-                    <select id="spendingCategory" class="form-control">
-                        <?php
-                        foreach ($db->query("SELECT * FROM Categories") as $categories) {
-                            echo '<option value="' . $categories["Id"] . '">' . $categories["Name"] . '</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="spendingBusiness">İşletme</label>
-                    <input type="text" class="form-control" name="spendingBusiness" placeholder="Örneğin: YESODE" />
-                </div>
-
-                <button style="float: right" type="submit" class="btn btn-warning my-1 m-1" id="harca" onclick="return false;">Harca</button>
-            </form>
         </div>
 
+        <div class="main-right">
+            <div class="harcama-yap">
+                <h5>Harcama Ekle</h5>
+
+                <form>
+                    <div class="form-group">
+                        <label for="spendingAccount">Kullanılan Hesap</label>
+                        <select id="spendingAccount" class="form-control">
+                            <?php
+                            require_once 'backend/dbconnect.php';
+                            $userId = $_SESSION['userId'];
+                            foreach ($db->query("SELECT * FROM Accounts WHERE Owner = $userId") as $accountName) {
+                                echo '<option value="' . $accountName["Id"] . '">' . $accountName["Name"] . ' (' . $accountName['Type'] . ') ' . ' (' . $accountName['Currency'] . ')' . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="spendingAmount">Tutar</label>
+                        <input type="number" class="form-control" name="spendingAmount" placeholder="Örneğin:1000" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="spendingCategory">Kategori</label>
+                        <select id="spendingCategory" class="form-control">
+                            <?php
+                            foreach ($db->query("SELECT * FROM Categories") as $categories) {
+                                echo '<option value="' . $categories["Id"] . '">' . $categories["Name"] . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="spendingBusiness">İşletme</label>
+                        <input type="text" class="form-control" name="spendingBusiness" placeholder="Örneğin: YESODE" />
+                    </div>
+
+                    <button style="float: right" type="submit" class="btn btn-warning my-1 m-1" id="harca" onclick="return false;">Harca</button>
+                </form>
+            </div>
+
+        </div>
     </div>
-</div>
 </body>
 
 </html>
@@ -143,5 +147,17 @@
             });
         });
 
+        //logOut 
+        $("#cikisYap").click(function() {
+
+            $.ajax({
+                url: "backend/logOut.php",
+                type: "GET",
+                success: function(result) {
+                    alert("Başarıyla çıkış yaptınız!");
+                    location.reload();
+                }
+            });
+        });
     });
 </script>

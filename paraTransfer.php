@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/paraTransfer.css" />
-  <link href="style/fontawesome/css/all.css" rel="stylesheet"> 
+  <link href="style/fontawesome/css/all.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/calculate.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -18,20 +18,21 @@
 <body>
   <div class="main-content">
 
-   <div class="navbar">
+    <div class="navbar">
       <div class="navbar-logo">
         <img src="assets/logo.png" />
       </div>
       <div class="navbar-control">
-        <input type="checkbox" id="control"/>
         <label for="control"><i class="fas fa-bars"></i></label>
       </div>
     </div>
 
+    <input type="checkbox" id="control" />
+
     <div class="sidebar">
       <ul class="list-group">
         <a href="hesapDetay.php">
-          <li class="list-group-item active p-3 ">Hesap İşlemleri</li>
+          <li class="list-group-item active p-3 "><i class="fas fa-money-check-alt"></i>Hesap İşlemleri</li>
         </a>
         <ul class="list-group">
           <a href="hesapDetay.php">
@@ -45,16 +46,20 @@
           </a>
         </ul>
         <a href="hareketler.php">
-          <li class="list-group-item p-3">Hareketler</li>
+          <li class="list-group-item p-3"><i class="fas fa-search"></i>Hareketler</li>
         </a><a href="kategoriler.php">
-          <li class="list-group-item p-3">Kategoriler</li>
+          <li class="list-group-item p-3"><i class="fas fa-layer-group"></i>Kategoriler</li>
         </a>
         <a href="genelBakis.php">
-          <li class="list-group-item p-3">Genel Bakış</li>
+          <li class="list-group-item p-3"><i class="far fa-eye"></i>Genel Bakış</li>
         </a>
 
         <a href="kullaniciIslemleri.php">
-          <li class="list-group-item p-3">Kullanıcı İşlemleri</li>
+          <li class="list-group-item p-3"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
+        </a>
+
+        <a href="backend/logOut.php" id="cikisYap" onclick="return false">
+          <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
         </a>
       </ul>
     </div>
@@ -104,6 +109,19 @@
 
 <script>
   $(document).ready(function() {
+
+    //logOut 
+    $("#cikisYap").click(function() {
+
+      $.ajax({
+        url: "backend/logOut.php",
+        type: "GET",
+        success: function(result) {
+          alert("Başarıyla çıkış yaptınız!");
+          location.reload();
+        }
+      });
+    });
 
     $("#gonder").click(function() {
 
