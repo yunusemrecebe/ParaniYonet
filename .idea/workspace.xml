@@ -20,21 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cab517dd-1903-44a9-b5f0-74e53dc5870c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/userOperations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/addBalance.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/addBalance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/editAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/editAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logOut.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/updateAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/updateAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genelBakis.php" beforeDir="false" afterPath="$PROJECT_DIR$/genelBakis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/harcamaEkle.php" beforeDir="false" afterPath="$PROJECT_DIR$/harcamaEkle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hareketler.php" beforeDir="false" afterPath="$PROJECT_DIR$/hareketler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hesapDetay.php" beforeDir="false" afterPath="$PROJECT_DIR$/hesapDetay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosgeldin.html" beforeDir="false" afterPath="$PROJECT_DIR$/hosgeldin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kategoriler.php" beforeDir="false" afterPath="$PROJECT_DIR$/kategoriler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kullaniciIslemleri.php" beforeDir="false" afterPath="$PROJECT_DIR$/kullaniciIslemleri.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paraTransfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/paraTransfer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +92,7 @@
       <workItem from="1608574814520" duration="5447000" />
       <workItem from="1608622724273" duration="5857000" />
       <workItem from="1608743038550" duration="15109000" />
-      <workItem from="1608973212038" duration="4347000" />
+      <workItem from="1608973212038" duration="9615000" />
     </task>
     <servers />
   </component>

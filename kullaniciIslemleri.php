@@ -68,37 +68,30 @@ $userInfo = $db->query("SELECT * FROM Users WHERE Id = $userId")->fetch(PDO::FET
         <form>
           <div class="form-group">
             <label for="InputName">Adınız</label>
-            <input type="text" class="form-control" id="InputName" value="<?php echo $userInfo['FirstName']; ?>"/>
+            <input type="text" class="form-control" name="firstName" value="<?php echo $userInfo['FirstName']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="InputLastName">Soyadınız</label>
-            <input type="text" class="form-control" id="InputLastName" value="<?php echo $userInfo['LastName']; ?>"/>
+            <input type="text" class="form-control" name="lastName" value="<?php echo $userInfo['LastName']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="InputEmail">Email</label>
-            <input type="email" class="form-control" id="InputEmail" value="<?php echo $userInfo['Email']; ?>"/>
+            <input type="email" class="form-control" name="eMail" value="<?php echo $userInfo['Email']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="exampleInputPassword1">Şifre</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" value="<?php echo $userInfo['Password']; ?>"/>
+            <input type="text" class="form-control" name="password" value="<?php echo $userInfo['Password']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="exampleInputPassword1">GSM</label>
-            <input type="number" class="form-control" id="exampleInputPassword1" value="<?php echo $userInfo['GSM']; ?>"/>
+            <input type="number" class="form-control" name="gsm" value="<?php echo $userInfo['GSM']; ?>"/>
           </div>
 
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-            <label class="form-check-label" for="exampleCheck1">Bilgileri doğru girdim</label>
-          </div>
-
-          <button style="margin-top: 5px; float: right" type="submit" class="btn btn-dark">
-            Güncelle
-          </button>
+          <button style="margin-top: 5px; float: right" type="submit" class="btn btn-dark" onclick="return false;" id="update">Güncelle</button>
         </form>
       </div>
     </div>
@@ -114,7 +107,36 @@ $userInfo = $db->query("SELECT * FROM Users WHERE Id = $userId")->fetch(PDO::FET
 <script>
   $(document).ready(function() {
 
-    //logOut 
+      $("#update").click(function() {
+          var firstName = $("input[name=firstName]").val();
+          var lastName = $("input[name=lastName]").val();
+          var eMail = $("input[name=eMail]").val();
+          var password = $("input[name=password]").val();
+          var gsm = $("input[name=gsm]").val();
+
+
+          console.log(firstName,"\n",lastName,"\n",eMail,"\n",password,"\n",gsm,"\n");
+
+          $.ajax({
+              url: "backend/userOperations.php",
+              type: "POST",
+              data: {
+                  'firstName': firstName,
+                  'lastName': lastName,
+                  'eMail': eMail,
+                  'password': password,
+                  'gsm': gsm
+              },
+              success: function(result) {
+                  alert(result);
+                  if (result=="güncelleme başarılı!"){
+                      location.reload();
+                  }
+              }
+          });
+      });
+
+    //logOut
     $("#cikisYap").click(function() {
 
       $.ajax({
@@ -126,6 +148,7 @@ $userInfo = $db->query("SELECT * FROM Users WHERE Id = $userId")->fetch(PDO::FET
         }
       });
     });
+
   });
 </script>
     <?php
