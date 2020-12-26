@@ -41,10 +41,11 @@ if (isset($_POST['accountId'])) {
 </div>
 <div class="form-row">
     <div class="form-group col-md-6">
+        <label for="inputPassword4">Bakiye</label>
+        <input type="number" class="form-control" name="accountBalance" value="<?php echo $accountBalance; ?>" readonly="">
+    </div>
+    <div class="form-group col-md-6">
         <label for="inputEmail4">Hesap Adı</label>
         <input type="text" class="form-control" name="accountName" value="<?php echo $accountName; ?>">
     </div>
-    <div class="form-group col-md-6">
-        <label for="inputPassword4">Bakiye</label>
-        <input type="number" class="form-control" name="accountBalance" value="<?php echo $accountBalance; ?>">
-    </div>
+</div>

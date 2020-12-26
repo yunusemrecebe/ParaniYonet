@@ -1,3 +1,9 @@
+<?php
+require_once 'backend/functions.php';
+require_once 'backend/dbconnect.php';
+
+if ($_SESSION['loginStatus']==1){
+?>
 <!DOCTYPE html>
 <html lang="TR">
 
@@ -59,7 +65,7 @@
           <li class="list-group-item p-3"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
         </a>
 
-        <a href="backend/logOut.php" id="cikisYap" onclick="return false">
+        <a href="" id="cikisYap" onclick="return false">
           <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
         </a>
       </ul>
@@ -87,7 +93,6 @@
           <tbody>
 
             <?php
-            require_once 'backend/dbconnect.php';
             $userId = $_SESSION['userId'];
 
             $accountsQuery = $db->query("SELECT a.Id, a.Name, a.Type, a.Balance, a.Owner, a.Currency, u.FirstName, u.LastName FROM Accounts a JOIN Users u ON a.Owner = u.Id WHERE a.Owner = $userId");
@@ -253,12 +258,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-
 </body>
-
-
-
 <script>
   $(document).ready(function() {
 
@@ -291,11 +291,10 @@
       });
     });
 
-    $(".addBalanceButton").click(function() {
+    $(".addBalanceButton").click(function() {//Hesap bakiye ekleme işlemleri
       var accountId = this.id;
 
-      $("#addBalanceButton").click(function() { //Hesap bakiye ekleme işlemleri
-
+      $("#addBalanceButton").click(function() {
         var increaseAmount = $("input[name=increaseAmount]").val();
 
         $.ajax({
@@ -308,23 +307,14 @@
           success: function(result) {
             alert(result);
             if (result == "Bakiye eklendi!") {
-              $("#addBalance").modal('hide');
-              $("input[name=increaseAmount]").val('');
-              location.reload();
+             $("#addBalance").modal('hide');
+             $("input[name=increaseAmount]").val('');
+             location.reload();
             }
           }
         });
       });
-
-
-
-
-    })
-
-
-
-
-
+    });
 
     //View Deleting Account
     $(document).on('click', '.delAccount', function() {
@@ -384,7 +374,7 @@
         type: "GET",
         success: function(result) {
           alert("Başarıyla çıkış yaptınız!");
-          location.reload();
+            window.location.href="index.php";
         }
       });
     });
@@ -407,6 +397,10 @@
 
   });
 </script>
-
-
 </html>
+    <?php
+}
+else{
+    LogOutRedirect();
+}
+?>

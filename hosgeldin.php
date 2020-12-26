@@ -1,3 +1,9 @@
+<?php
+require_once 'backend/functions.php';
+require_once 'backend/dbconnect.php';
+
+if ($_SESSION['loginStatus']==1){
+?>
 <!DOCTYPE html>
 <html lang="TR">
   <head>
@@ -7,12 +13,8 @@
     <link rel="stylesheet" href="style/hosgeldin.css" />
     <link href="style/fontawesome/css/all.css" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="icon" type="image/png" href="assets/calculate.png" />
     <title>Paranı Yönet</title>
   </head>
@@ -47,9 +49,9 @@
           <a href="kullaniciIslemleri.php">
             <li class="list-group-item p-3"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
           </a>
-          <a href="backend/logOut.php" id="cikisYap" onclick="return false">
-            <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
-          </a>
+            <a href="" id="cikisYap" onclick="return false">
+                <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
+            </a>
         </ul>
       </div>
 
@@ -70,3 +72,26 @@
     </div>
   </body>
 </html>
+    <script>
+        $(document).ready(function() {
+
+            //logOut
+            $("#cikisYap").click(function() {
+
+                $.ajax({
+                    url: "backend/logOut.php",
+                    type: "GET",
+                    success: function(result) {
+                        alert("Başarıyla çıkış yaptınız!");
+                        window.location.href="index.php";
+                    }
+                });
+            });
+        });
+    </script>
+    <?php
+}
+else{
+    LogOutRedirect();
+}
+?>

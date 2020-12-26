@@ -1,3 +1,9 @@
+<?php
+require_once 'backend/functions.php';
+require_once 'backend/dbconnect.php';
+
+if ($_SESSION['loginStatus']==1){
+?>
 <!DOCTYPE html>
 <html lang="TR">
 
@@ -8,8 +14,8 @@
   <link href="style/fontawesome/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="style/kullaniciIslemleri.css" />
   <link rel="icon" type="image/png" href="assets/calculate.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Paranı Yönet - Kullanıcı</title>
 </head>
@@ -45,33 +51,44 @@
         <a href="kullaniciIslemleri.php">
           <li class="list-group-item active p-3 animate__animated animate__fadeIn"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
         </a>
-        <a href="backend/logOut.php" id="cikisYap" onclick="return false">
+        <a href="" id="cikisYap" onclick="return false">
           <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
         </a>
       </ul>
     </div>
+
+<?php
+$userId = $_SESSION['userId'];
+$userInfo = $db->query("SELECT * FROM Users WHERE Id = $userId")->fetch(PDO::FETCH_ASSOC);
+
+?>
 
     <div class="main-right">
       <div class="form-kullanici">
         <form>
           <div class="form-group">
             <label for="InputName">Adınız</label>
-            <input type="text" class="form-control" id="InputName" placeholder="Kullanıcının mevcut adı" />
+            <input type="text" class="form-control" id="InputName" value="<?php echo $userInfo['FirstName']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="InputLastName">Soyadınız</label>
-            <input type="text" class="form-control" id="InputLastName" placeholder="Kullanıcının mevcut soyadı" />
+            <input type="text" class="form-control" id="InputLastName" value="<?php echo $userInfo['LastName']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="InputEmail">Email</label>
-            <input type="email" class="form-control" id="InputEmail" placeholder="Kullanıcının mevcut maili" />
+            <input type="email" class="form-control" id="InputEmail" value="<?php echo $userInfo['Email']; ?>"/>
           </div>
 
           <div class="form-group">
             <label for="exampleInputPassword1">Şifre</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+            <input type="text" class="form-control" id="exampleInputPassword1" value="<?php echo $userInfo['Password']; ?>"/>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">GSM</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" value="<?php echo $userInfo['GSM']; ?>"/>
           </div>
 
           <div class="form-check">
@@ -92,8 +109,8 @@
 
 <!-- Bootstrap gerekli js kodları -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
   $(document).ready(function() {
 
@@ -105,9 +122,15 @@
         type: "GET",
         success: function(result) {
           alert("Başarıyla çıkış yaptınız!");
-          location.reload();
+            window.location.href="index.php";
         }
       });
     });
   });
 </script>
+    <?php
+}
+else{
+    LogOutRedirect();
+}
+?>

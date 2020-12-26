@@ -1,3 +1,9 @@
+<?php
+require_once 'backend/functions.php';
+require_once 'backend/dbconnect.php';
+
+if ($_SESSION['loginStatus']==1){
+?>
 <!DOCTYPE html>
 <html lang="TR">
 
@@ -57,7 +63,7 @@
                 <a href="kullaniciIslemleri.php">
                     <li class="list-group-item p-3"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
                 </a>
-                <a href="backend/logOut.php" id="cikisYap" onclick="return false">
+                <a href="" id="cikisYap" onclick="return false">
                     <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
                 </a>
             </ul>
@@ -72,7 +78,6 @@
                         <label for="spendingAccount">Kullanılan Hesap</label>
                         <select id="spendingAccount" class="form-control">
                             <?php
-                            require_once 'backend/dbconnect.php';
                             $userId = $_SESSION['userId'];
                             foreach ($db->query("SELECT * FROM Accounts WHERE Owner = $userId") as $accountName) {
                                 echo '<option value="' . $accountName["Id"] . '">' . $accountName["Name"] . ' (' . $accountName['Type'] . ') ' . ' (' . $accountName['Currency'] . ')' . '</option>';
@@ -155,9 +160,15 @@
                 type: "GET",
                 success: function(result) {
                     alert("Başarıyla çıkış yaptınız!");
-                    location.reload();
+                    window.location.href="index.php";
                 }
             });
         });
     });
 </script>
+    <?php
+}
+else{
+    LogOutRedirect();
+}
+?>

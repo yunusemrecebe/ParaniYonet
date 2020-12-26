@@ -1,6 +1,12 @@
 <?php
 date_default_timezone_set('Europe/Istanbul');
 
+function LogOutRedirect(){
+    echo "<script type='text/javascript'>alert('Bu sayfayı görüntülemek için öncelikle oturum açmalısınız!');</script>";
+    Header("Refresh: 0.01; url=index.php");
+    die();
+}
+
 function ViewSumSpendingByCategory($x){
     include 'dbconnect.php';
     $userId = $_SESSION['userId'];
@@ -66,6 +72,5 @@ function ViewIncomesByDate($date){
         echo "Henüz hiç gelir eklenmedi.";
     }
 }
-
 
 ?>
