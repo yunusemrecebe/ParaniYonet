@@ -10,25 +10,39 @@
 .date-form {
   display: flex;
   margin-left: auto;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.date-form div input{
-  border:hidden;
+.custom-input input {
+  border: hidden;
 }
 
-input:focus{
+.custom-input input:focus {
   outline: none;
 }
 
-.date-form div{
-  padding:5px;
-  border: .5px solid gray;
-  border-radius:5px;
+.custom-input {
+  padding: 5px;
+  border: 0.5px solid gray;
+  border-radius: 5px;
   display: inline;
 }
 
-.date-form div i{
+.custom-input i {
   margin-left: 3px;
+}
+@media only screen and (max-width: 1200px) {
+  .date-form {
+    margin-left: 2px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    height: 60px;
+  }
+
+  label {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -37,12 +51,3 @@ input:focus{
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .main-content {
-    width: 100%;
-  }
-
-  .date-form {
-    min-width: 600px;
-  }
-}

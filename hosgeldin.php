@@ -2,35 +2,23 @@
 require_once 'backend/functions.php';
 require_once 'backend/dbconnect.php';
 
-if ($_SESSION['loginStatus']==1){
+if ($_SESSION['loginStatus'] == 1) {
 ?>
-<!DOCTYPE html>
-<html lang="TR">
+  <!DOCTYPE html>
+  <html lang="TR">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/style.css">
+    <?php include 'headLinks.php'; ?>
     <link rel="stylesheet" href="style/hosgeldin.css" />
-    <link href="style/fontawesome/css/all.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="icon" type="image/png" href="assets/calculate.png" />
     <title>Paranı Yönet</title>
   </head>
 
   <body>
     <div class="main-content">
-      <div class="navbar">
-        <div class="navbar-logo">
-          <img src="assets/logo.png" />
-        </div>
-        <div class="navbar-control">
-          <label for="control"><i class="fas fa-bars"></i></label>
-        </div>
-      </div>
-      
-      <input type="checkbox" id="control"/>
+
+      <?php include 'navbar.php'; ?>
+
+      <input type="checkbox" id="control" />
 
       <div class="sidebar animate__animated animate__fadeIn">
         <ul class="list-group">
@@ -38,8 +26,8 @@ if ($_SESSION['loginStatus']==1){
             <li class="list-group-item p-3"><i class="fas fa-money-check-alt"></i>Hesap İşlemleri</li>
           </a>
           <a href="hareketler.php">
-            <li class="list-group-item p-3"><i class="fas fa-search"></i>Hareketler</li> </a
-          ><a href="kategoriler.php">
+            <li class="list-group-item p-3"><i class="fas fa-search"></i>Hareketler</li>
+          </a><a href="kategoriler.php">
             <li class="list-group-item p-3"><i class="fas fa-layer-group"></i>Kategoriler</li>
           </a>
           <a href="genelBakis.php">
@@ -49,9 +37,9 @@ if ($_SESSION['loginStatus']==1){
           <a href="kullaniciIslemleri.php">
             <li class="list-group-item p-3"><i class="fas fa-user-circle"></i>Kullanıcı İşlemleri</li>
           </a>
-            <a href="" id="cikisYap" onclick="return false">
-                <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
-            </a>
+          <a href="" id="cikisYap" onclick="return false">
+            <li class="list-group-item  p-3"><i class="fas fa-door-open"></i>Çıkış Yap</li>
+          </a>
         </ul>
       </div>
 
@@ -63,35 +51,35 @@ if ($_SESSION['loginStatus']==1){
 
         <div class="welcome-img-container">
           <img src="assets/savings.png" />
-          <h2>Paranı Yönet Web Sitesine Hoşgeldiniz</h2>
+          <h2>Paranı Yönet Web Sitesine Hoşgeldin</h2>
           <h6>
-            Paranızın çok mu harcıyorsunuz? Birikim yapmak mı istiyorsunuz?
+            Paranı Yönet! Hesabını bil.
           </h6>
         </div>
       </div>
     </div>
   </body>
-</html>
-    <script>
-        $(document).ready(function() {
 
-            //logOut
-            $("#cikisYap").click(function() {
+  </html>
+  <script>
+    $(document).ready(function() {
 
-                $.ajax({
-                    url: "backend/logOut.php",
-                    type: "GET",
-                    success: function(result) {
-                        alert("Başarıyla çıkış yaptınız!");
-                        window.location.href="index.php";
-                    }
-                });
-            });
+      //logOut
+      $("#cikisYap").click(function() {
+
+        $.ajax({
+          url: "backend/logOut.php",
+          type: "GET",
+          success: function(result) {
+            alert("Başarıyla çıkış yaptınız!");
+            window.location.href = "index.php";
+          }
         });
-    </script>
-    <?php
-}
-else{
-    LogOutRedirect();
+      });
+    });
+  </script>
+<?php
+} else {
+  LogOutRedirect();
 }
 ?>

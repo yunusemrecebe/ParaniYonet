@@ -12,6 +12,10 @@
   min-width: 300px;
 }
 
+.harcama-yap h5{
+  margin-bottom:23px;
+}
+
 @media only screen and (max-width: 768px) {
   .main-right {
     width: 95%;

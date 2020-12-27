@@ -71,7 +71,6 @@ ol {
   background-color: mediumslateblue;
 }
 
-
 @media only screen and (max-width: 1200px) {
   .money-info-card img {
     width: 150px;
@@ -99,21 +98,19 @@ ol {
   .ol-tag-day {
     width: 65%;
   }
-
 }
 
 @media only screen and (max-width: 768px) {
-    .main-right{
-      width:98%;
-    }
-  
-  .money-info-container{
-    width:75%;
+  .main-right {
+    width: 98%;
   }
-  
+
+  .money-info-container {
+    width: 75%;
+  }
+
   .money-info-card img {
     width: 100px;
     height: 100px;
   }
-
 }
