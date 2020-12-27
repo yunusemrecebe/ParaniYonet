@@ -46,16 +46,16 @@ if ($_SESSION['loginStatus'] == 1) {
 
                 <div class="date-form">
                     <div class="m-1">
-                        <label for="datepicker" class="m-1">Başlangıç Tarihi: </label>
+                        <label for="From" class="m-1">Başlangıç Tarihi: </label>
                         <div class="custom-input">
-                            <input type="text" name="From" id="From"><i class="far fa-calendar-alt"></i>
+                            <input type="text" id="firstDate"><i class="far fa-calendar-alt"></i>
                         </div>
                     </div>
 
                     <div class="m-1">
-                        <label for="datepicker" class="m-1">Bitiş Tarihi: </label>
+                        <label for="to" class="m-1">Bitiş Tarihi: </label>
                         <div class="custom-input">
-                            <input type="text" name="to" id="to"><i class="far fa-calendar-alt"></i>
+                            <input type="text" id="secondDate"><i class="far fa-calendar-alt"></i>
                         </div>
                     </div>
 
@@ -122,21 +122,21 @@ if ($_SESSION['loginStatus'] == 1) {
                     });
 
                     $(function() {
-                        $("#From").datepicker();
-                        $("#to").datepicker();
+                        $("#firstDate").datepicker();
+                        $("#secondDate").datepicker();
                     });
 
                     $('#filter').click(function() {
-                        var From = $('#From').val();
-                        var to = $('#to').val();
+                        var firstDate = $('#firstDate').val();
+                        var secondDate = $('#secondDate').val();
 
-                        if (From != '' && to != '') {
+                        if (firstDate != '' && secondDate != '') {
                             $.ajax({
                                 url: "backend/filterSpending.php",
                                 method: "POST",
                                 data: {
-                                    From: From,
-                                    to: to
+                                    firstDate: firstDate,
+                                    secondDate: secondDate
                                 },
                                 success: function(data) {
                                     $('#filteredData').html(data);
