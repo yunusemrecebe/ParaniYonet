@@ -12,10 +12,10 @@ if($_POST['account'] != "" && $_POST['category'] != "" && $_POST['business'] != 
     if ($amount>0){
 
         $learnBalance = $db->query("SELECT Balance FROM Accounts WHERE Id = $account")->fetch(PDO::FETCH_ASSOC); //Mevcut hesap bakiyesini öğren
+        $learnBalance = $learnBalance['Balance'];
 
-        if ($learnBalance<$amount) {
+        if ($learnBalance>$amount) {
 
-            $learnBalance = $learnBalance['Balance'];
             $availableBalance = $learnBalance - $amount; //Kalan bakiyeyi hesapla
             $db->exec("UPDATE Accounts SET Balance = $availableBalance WHERE Id = $account"); //Hesap bakiyesini güncelle
 

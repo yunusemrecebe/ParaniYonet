@@ -112,8 +112,6 @@ if ($_SESSION['loginStatus'] == 1) {
           </table>
         </div>
 
-
-
         <!-- Hesap Oluşturma Penceresi -->
         <div class="modal fade" id="hesapAc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">

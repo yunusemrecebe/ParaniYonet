@@ -5,8 +5,16 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
+#filterByCurrency{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .money-info-container {
   min-width: 250px;
   display: flex;

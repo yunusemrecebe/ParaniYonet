@@ -45,43 +45,56 @@ if ($_SESSION['loginStatus'] == 1) {
 
       <div class="main-right">
 
-        <div class="circle-card">
-          <img src="assets/fuel.png" />
-          <h4>Akaryakıt</h4>
-          <h1>
-            <?php ViewSumSpendingByCategory(1); ?></h1>
-        </div>
+          <div style="margin-right:auto" class="currencySelection">
+              <form action="">
+                  <label for="accountCurrency" class="m-1">Para Birimi: </label>
+                  <select style="width:150px" class="custom-select m-1 sm" id="accountCurrency">
+                      <option value="TL">TL</option>
+                      <option value="EURO">EURO</option>
+                      <option value="USD">USD</option>
+                  </select>
+                  <input class="btn btn-primary" type="submit" id="filter" onclick="return false" value="Göster">
+            </form>
+          </div>
 
-        <div class="circle-card">
-          <img src="assets/healt.png" />
-          <h4>Sağlık</h4>
-          <h1><?php ViewSumSpendingByCategory(2); ?></h1>
-        </div>
+        <div id="filterByCurrency">
+            <div class="circle-card">
+              <img src="assets/fuel.png" />
+              <h4>Akaryakıt</h4>
+              <h1>
+                <?php echo ViewSumSpendingByCategory(1,"TL"); ?></h1>
+            </div>
 
-        <div class="circle-card">
-          <img src="assets/market.png" />
-          <h4>Market</h4>
-          <h1><?php ViewSumSpendingByCategory(3); ?></h1>
-        </div>
+            <div class="circle-card">
+              <img src="assets/healt.png" />
+              <h4>Sağlık</h4>
+              <h1><?php echo ViewSumSpendingByCategory(2,"TL"); ?></h1>
+            </div>
 
-        <div class="circle-card">
-          <img src="assets/bus.png" />
-          <h4>Ulaşım</h4>
-          <h1><?php ViewSumSpendingByCategory(4); ?></h1>
-        </div>
+            <div class="circle-card">
+              <img src="assets/market.png" />
+              <h4>Market</h4>
+              <h1><?php echo ViewSumSpendingByCategory(3,"TL"); ?></h1>
+            </div>
 
-        <div class="circle-card">
-          <img src="assets/giftbox.png" />
-          <h4>Hediye</h4>
-          <h1><?php ViewSumSpendingByCategory(5); ?></h1>
-        </div>
+            <div class="circle-card">
+              <img src="assets/bus.png" />
+              <h4>Ulaşım</h4>
+              <h1><?php echo ViewSumSpendingByCategory(4,"TL"); ?></h1>
+            </div>
 
-        <div class="circle-card">
-          <img src="assets/restaurant.png" />
-          <h4>Restorant</h4>
-          <h1><?php ViewSumSpendingByCategory(6); ?></h1>
-        </div>
+            <div class="circle-card">
+              <img src="assets/giftbox.png" />
+              <h4>Hediye</h4>
+              <h1><?php echo ViewSumSpendingByCategory(5,"TL"); ?></h1>
+            </div>
 
+            <div class="circle-card">
+              <img src="assets/restaurant.png" />
+              <h4>Restorant</h4>
+              <h1><?php echo ViewSumSpendingByCategory(6,"TL"); ?></h1>
+            </div>
+        </div>
       </div>
     </div>
   </body>
@@ -90,11 +103,28 @@ if ($_SESSION['loginStatus'] == 1) {
 
   <!-- Bootstrap gerekli js kodları -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <script>
     $(document).ready(function() {
+
+        //Filter Category by Account Currency
+        $('#filter').click(function() {
+            var accountCurrency = document.getElementById('accountCurrency');
+            var accountCurrency = accountCurrency.options[accountCurrency.selectedIndex].value;
+
+                $.ajax({
+                    url: "backend/filterCategorybyCurrency.php",
+                    method: "POST",
+                    data: {
+                        accountCurrency: accountCurrency
+                    },
+                    success: function(data) {
+                        $('#filterByCurrency').html(data);
+                    }
+                });
+        });
 
       //logOut 
       $("#cikisYap").click(function() {

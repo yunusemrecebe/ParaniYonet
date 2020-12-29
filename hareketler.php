@@ -79,7 +79,7 @@ if ($_SESSION['loginStatus'] == 1) {
                         </thead>
                         <tbody>
                             <?php
-                            $spendingsQuery = $db->query("SELECT s.Id, c.Name as Category, s.Amount, a.Name as AccountName, s.AvailableBalance,s.OldBalance,s.SpendingDate,s.Business, a.Currency as AccountCurrency FROM Accounts a JOIN Users u ON a.Owner = u.Id JOIN Spendings s ON s.Account = a.Id JOIN Categories c ON c.Id = s.Category WHERE a.Owner = $userId");
+                            $spendingsQuery = $db->query("SELECT s.Id, c.Name as Category, s.Amount, a.Name as AccountName, s.AvailableBalance,s.OldBalance,s.SpendingDate,s.Business, a.Currency as AccountCurrency FROM Accounts a JOIN Users u ON a.Owner = u.Id JOIN Spendings s ON s.Account = a.Id JOIN Categories c ON c.Id = s.Category WHERE a.Owner = $userId GROUP BY s.Id DESC");
                             while ($row = $spendingsQuery->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                                 <tr>
