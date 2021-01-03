@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cab517dd-1903-44a9-b5f0-74e53dc5870c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/moneyTransfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/moneyTransfer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paraTransfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/paraTransfer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1609010725318" duration="610000" />
       <workItem from="1609224952518" duration="8469000" />
       <workItem from="1609532145863" duration="156000" />
-      <workItem from="1609669561409" duration="228000" />
+      <workItem from="1609669561409" duration="2398000" />
     </task>
     <servers />
   </component>

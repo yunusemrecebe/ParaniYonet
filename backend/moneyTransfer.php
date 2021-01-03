@@ -15,7 +15,7 @@ if($_POST['sendingAmount']>0){
         $secondAccount = $db->query("SELECT * FROM Accounts WHERE Id = $gettingAccount")->fetch(PDO::FETCH_ASSOC);
         $secondAccountBalance = $secondAccount['Balance'];
         $secondAccountCurrency = $secondAccount['Currency'];
-        if  ($firstAccountBalance>$sendingAmount){
+        if  ($firstAccountBalance>=$sendingAmount){
             if ($firstAccountCurrency==$secondAccountCurrency){
 
                 $firstAccountBalance = $firstAccountBalance - $sendingAmount;
