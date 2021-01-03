@@ -1,12 +1,11 @@
 <?php
 require_once 'backend/functions.php';
 require_once 'backend/dbconnect.php';
-
+$userId = $_SESSION['userId'];
 if ($_SESSION['loginStatus'] == 1) {
 ?>
   <!DOCTYPE html>
   <html lang="TR">
-
   <head>
     <?php include 'headLinks.php'; ?>
     <link rel="stylesheet" href="style/paraTransfer.css" />
@@ -65,7 +64,6 @@ if ($_SESSION['loginStatus'] == 1) {
             <label for="sendingAccount">Gönderen hesap</label>
             <select class="custom-select" id="sendingAccount">
               <?php
-              $userId = $_SESSION['userId'];
               foreach ($db->query("SELECT * FROM Accounts WHERE Owner = $userId") as $accountName) {
                 echo '<option value="' . $accountName["Id"] . '">' . $accountName["Name"] . ' (' . $accountName['Type'] . ') ' . ' (' . $accountName['Currency'] . ')' . '</option>';
               }

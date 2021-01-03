@@ -15,24 +15,28 @@ if($_POST['sendingAmount']>0){
         $secondAccount = $db->query("SELECT * FROM Accounts WHERE Id = $gettingAccount")->fetch(PDO::FETCH_ASSOC);
         $secondAccountBalance = $secondAccount['Balance'];
         $secondAccountCurrency = $secondAccount['Currency'];
+        if  ($firstAccountBalance>$sendingAmount){
+            if ($firstAccountCurrency==$secondAccountCurrency){
 
-        if ($firstAccountCurrency==$secondAccountCurrency){
+                $firstAccountBalance = $firstAccountBalance - $sendingAmount;
+                $secondAccountBalance = $secondAccountBalance + $sendingAmount;
 
-            $firstAccountBalance = $firstAccountBalance - $sendingAmount;
-            $secondAccountBalance = $secondAccountBalance + $sendingAmount;
+                $updateFirstAccount = $db->query("UPDATE Accounts SET Balance = $firstAccountBalance WHERE Id = $sendingAccount");
+                $updateSecondAccounts = $db->query("UPDATE Accounts SET Balance = $secondAccountBalance WHERE Id = $gettingAccount");
 
-            $updateFirstAccount = $db->query("UPDATE Accounts SET Balance = $firstAccountBalance WHERE Id = $sendingAccount");
-            $updateSecondAccounts = $db->query("UPDATE Accounts SET Balance = $secondAccountBalance WHERE Id = $gettingAccount");
-
-            if ($updateFirstAccount->rowCount() && $updateFirstAccount->rowCount()){
-                echo "Transfer işlemi başarıyla gerçekleştirildi!";
+                if ($updateFirstAccount->rowCount() && $updateFirstAccount->rowCount()){
+                    echo "Transfer işlemi başarıyla gerçekleştirildi!";
+                }
+                else{
+                    echo "Bir hata oluştu!";
+                }
             }
             else{
-                echo "Bir hata oluştu!";
+                echo "Farklı para birimleri arasında transfer işlemi gerçekleştirilemez!";
             }
         }
         else{
-            echo "Farklı para birimleri arasında transfer işlemi gerçekleştirilemez!";
+            echo "Gönderen hesabın bakiyesi, belirtilen işlem tutarı için yetersiz!";
         }
     }
     else{
