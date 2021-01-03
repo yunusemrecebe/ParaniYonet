@@ -37,9 +37,11 @@ function ViewSpendingsByDate($date,$currency){
 
     $spendingsQuery = $db->query("SELECT s.Amount, c.Name FROM Spendings s JOIN Accounts a ON s.Account = a.Id JOIN Categories c ON s.Category = c.Id JOIN Users u ON a.Owner = u.Id WHERE $date(SpendingDate) = $date(CURDATE()) AND u.Id = $userId AND a.Currency = '$currency'");
     if ($spendingsQuery->rowCount()){
+        $result = "";
         while ($spendings = $spendingsQuery->fetch(PDO::FETCH_ASSOC)) {
-            echo "<li>" . $spendings['Name'] . ", " . $spendings['Amount']." ".$currency ."</li>";
+            $result .= "<li>" . $spendings['Name'] . ", " . $spendings['Amount']." ".$currency ."</li>";
         }
+        return $result;
     }
     else{
         return "Henüz hiç harcama yapılmadı.";
@@ -64,9 +66,11 @@ function ViewIncomesByDate($date,$currency){
 
     $spendingsQuery = $db->query("SELECT i.Amount, a.Name FROM Incomes i JOIN Accounts a ON i.Account = a.Id JOIN Users u ON a.Owner = u.Id WHERE $date(IncomeDate) = $date(CURDATE()) AND u.Id = $userId AND a.Currency = '$currency'");
     if ($spendingsQuery->rowCount()){
+        $result = "";
         while ($spendings = $spendingsQuery->fetch(PDO::FETCH_ASSOC)) {
-            echo "<li>" . $spendings['Name'] . ", " . $spendings['Amount'] ." ".$currency . "</li>";
+            $result .= "<li>" . $spendings['Name'] . ", " . $spendings['Amount'] ." ".$currency . "</li>";
         }
+        return $result;
     }
     else{
         return "Henüz hiç gelir eklenmedi.";
