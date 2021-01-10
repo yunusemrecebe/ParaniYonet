@@ -1,8 +1,8 @@
 # ParaniYonet
 Para Yönetimi ve Harcama Takip Yazılımı
 
-  # Proje Tanıtım Videosu 
-      https://youtu.be/durVvUbFuNQ
+# Proje Tanıtım Videosu
+https://youtu.be/durVvUbFuNQ
 
-  # Demo 
-      yesode.com
+# Demo 
+https://yesode.com
