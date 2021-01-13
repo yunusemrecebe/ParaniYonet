@@ -58,7 +58,7 @@ $_SESSION['loginStatus']=null;
           </div>
           
         </div>
-        <h6 class="text-center"><a class="text-muted" href="https://github.com/yunusemrecebe" target="_blank">Yunus Emre CEBE tarafından hazırlandı.</a></h6>
+        <h6 class="text-center"><a class="text-muted" href="https://github.com/yunusemrecebe/ParaniYonet" target="_blank">Yunus Emre CEBE ve Emirhan KARAHAN tarafından hazırlandı.</a></h6>
       </div>
     </div>
 		
