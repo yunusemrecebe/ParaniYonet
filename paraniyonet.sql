@@ -32,7 +32,7 @@ CREATE TABLE `accounts` (
   `Id` int(11) NOT NULL,
   `Owner` int(11) NOT NULL,
   `Name` varchar(140) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
-  `Balance` int(11) NOT NULL,
+  `Balance` decimal(15,2) NOT NULL,
   `Currency` varchar(10) NOT NULL,
   `Type` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -90,9 +90,9 @@ INSERT INTO `categories` (`Id`, `Name`) VALUES
 CREATE TABLE `incomes` (
   `Id` int(11) NOT NULL,
   `Account` int(11) NOT NULL,
-  `Amount` int(11) NOT NULL,
-  `PreviousBalance` int(11) NOT NULL,
-  `NextBalance` int(11) NOT NULL,
+  `Amount` decimal(15,2) NOT NULL,
+  `PreviousBalance` decimal(15,2) NOT NULL,
+  `NextBalance` decimal(15,2) NOT NULL,
   `IncomeDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -127,10 +127,10 @@ INSERT INTO `incomes` (`Id`, `Account`, `Amount`, `PreviousBalance`, `NextBalanc
 CREATE TABLE `spendings` (
   `Id` int(11) NOT NULL,
   `Category` int(11) NOT NULL,
-  `Amount` int(11) NOT NULL,
+  `Amount` decimal(15,2) NOT NULL,
   `Account` int(11) NOT NULL,
-  `AvailableBalance` int(11) NOT NULL,
-  `OldBalance` int(11) NOT NULL,
+  `AvailableBalance` decimal(15,2) NOT NULL,
+  `OldBalance` decimal(15,2) NOT NULL,
   `SpendingDate` date NOT NULL,
   `Business` varchar(140) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
